@@ -1,6 +1,6 @@
 import unittest
 
-from test_functions import factorial
+from test_functions_new import factorial
 
 
 # CamelCase

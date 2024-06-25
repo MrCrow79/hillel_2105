@@ -9,7 +9,7 @@ sys.path.insert(0, str(pathlib.Path(__file__).parent.parent))
 # print(str(pathlib.Path(__file__)))
 # print(str(pathlib.Path(__file__).parent.parent))
 
-from test_fundtions import factorial
+# from test_fundtions import factorial
 
 
 # CamelCase
