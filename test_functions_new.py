@@ -13,7 +13,7 @@ def filter_even_numbers(lst):
     return [num for num in lst if num % 2 == 0]
 
 
-def find_primes(n):
+def find_primes(n: int) -> list:
     primes = []
     for num in range(2, n + 1):
         is_prime = True
