@@ -12,5 +12,5 @@ def tc_triangle_area_positive_all_1():
 
 @pytest.mark.smoke
 @pytest.mark.positive
-def tc_triangle_area_positive_123():
+def test_triangle_area_positive_123():
     assert round(triangle_area(1, 2, 3), 3) == 0.0
