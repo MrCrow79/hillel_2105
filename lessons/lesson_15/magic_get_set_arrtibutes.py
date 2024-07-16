@@ -1,8 +1,8 @@
 class Romb:
 
-    def __init__(self, a, b, name='just Romb'):
-        self.a = a
-        self.b = b
+    def __init__(self, side_1, side_2, name='just Romb'):
+        self.a = side_1
+        self.b = side_2
         self.name = name
 
     def __setattr__(self, key, value):  # set attribute
@@ -58,23 +58,25 @@ class Romb:
 
 
 if __name__ == '__main__':
-    r1 = Romb(2,3)
-    r2 = r1
-    print(r1.square())
-    print(r1.perimeter())
+    r1 = Romb(2, 3)
 
-    r1.a = -5  # == r1.__setattr__('a', -5)
-    r1.c = -5
-    print(r1.square())
-    r1.a = 'a'
-
-    r1.b = 50
-
-    print(r1.square())
-    print(r1.a)  # == print(ra.__getattr__('a'))
-    print(r1.b)
-    print(r1.c)
-    print(r1.__dict__)
-    print(r1.aaaaa)
+    # r1 = Romb(2,3)
+    # r2 = r1
+    # print(r1.square())
+    # print(r1.perimeter())
+    #
+    # r1.a = -5  # == r1.__setattr__('a', -5)
+    # r1.c = -5
+    # print(r1.square())
+    # r1.a = 'a'
+    #
+    # r1.b = 50
+    #
+    # print(r1.square())
+    # print(r1.a)  # == print(ra.__getattr__('a'))
+    # print(r1.b)
+    # print(r1.c)
+    # print(r1.__dict__)
+    # print(r1.aaaaa)
 
     # del r1
