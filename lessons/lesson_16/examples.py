@@ -2,6 +2,7 @@ from pytest import mark
 
 from utils.assert_companies import AssertCompanies
 from utils.company_schema import CompanySchema
+from lessons.lesson_16.abstract import Animal
 
 
 # # # precondition # # #

@@ -25,9 +25,9 @@ class AssertCompanies:
 
         assert len(company) > 0  # company.__len__() => return len(company.payment_data)
 
-        assert company.payment_data.get('incomes_this_year') is not None
-        assert company.payment_data.get('outcomes_this_year') is not None
-        assert company.payment_data.get('current_balance') is not None
+        assert company.get('incomes_this_year') is not None
+        assert company.get('outcomes_this_year') is not None
+        assert company.get('current_balance') is not None
 
 
 class AssertCompanyFiltered(AssertCompanies):
