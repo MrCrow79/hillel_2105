@@ -2,6 +2,11 @@ from datetime import datetime
 import time
 
 
+
+cur_year = 2024
+next_year = 2025
+
+
 class DateUtils:
 
     def __init__(self):
@@ -23,3 +28,5 @@ class DateUtils:
 
         return datetime.now().year + 1
 
+
+__all__ = ['cur_year']

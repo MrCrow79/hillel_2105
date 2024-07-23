@@ -14,6 +14,9 @@ class Animal(ABC):
     def say_hi(self):
         print('Hi')
 
+    def Animal_say_hi(self):
+        print('Hi')
+
 
 class Cat(Animal):
 
@@ -28,7 +31,8 @@ class Cat(Animal):
     #     raise NotImplementedError
 
 
-cat = Cat()
+if __name__ == '__main__':
+    cat = Cat()
 
-cat.say_smth()
-cat.say_hi()
+    cat.say_smth()
+    cat.say_hi()
