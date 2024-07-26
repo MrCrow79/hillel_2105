@@ -32,4 +32,21 @@ def default_fuel_consumption():
 def default_auto(default_tank, default_fuel_consumption):
     print('Creating autooo')
     auto = Auto(tank=default_tank, fuel_consumption=default_fuel_consumption)
-    return auto
+    yield auto  # returns auto
+
+    # next rows will be executed after test
+    del auto
+    print('Autto was deleted')
+
+
+@pytest.fixture  # will be run fot each test
+def fixture_for_example(default_tank, default_fuel_consumption):
+    print('fixture_for_example before test')
+    yield   # return None
+    print('fixture_for_example after test')
+
+
+@pytest.fixture  # will be run fot each test
+def fixture_postcondition():
+    yield   # return None
+    print('fixture_postcondition after test')
