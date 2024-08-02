@@ -67,15 +67,17 @@ def do_twice(fn):
     return wrapper
 
 
-@time_decorator
-@do_twice
+@do_twice  # calculate_sum_2_numbers = do_twice(time_decorator(calculate_sum_2_numbers(a, b)))
+@time_decorator  # calculate_sum_2_numbers = time_decorator(calculate_sum_2_numbers(a, b))
 def calculate_sum_2_numbers(a, b):
     time.sleep(random.choice(range(1, 11))/10)
     return a + b
 
 
+
+
 # get_5_numbers = time_decorator(get_5_numbers)
 # print(get_5_numbers())
-print(calculate_sum_2_numbers(5, 12))
+calculate_sum_2_numbers(5, 12)
 
 
