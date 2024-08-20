@@ -36,7 +36,7 @@ def tc_convert_to_24_hour_am_positive(input_, expected):
 @pytest.mark.convert_time
 @pytest.mark.xfail()
 def tc_convert_to_24_hour_am_positive_1_01_am():
-    assert '1:01' == convert_to_24_hour('1:01 AM'), f'Incorrect converting {'1:01 AM'}'
+    assert '1:01' == convert_to_24_hour('1:01 AM'), f'Incorrect converting 1:01 AM'
 
 
 # def tc_convert_to_24_hour_pm_positive():

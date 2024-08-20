@@ -1,8 +1,11 @@
 import configparser
 import pathlib
 from os.path import join
+import load_dotenv
 
 ROOT_PATH = str(pathlib.Path(__file__).parent.parent.resolve())
+
+load_dotenv.load_dotenv(join(ROOT_PATH, '.env'))
 
 
 settings = configparser.ConfigParser()
