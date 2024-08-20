@@ -1,0 +1,19 @@
+load_dotenv
+
+
+xpath - https://www.w3schools.com/xml/xpath_intro.asp
+
+# //form//div[@jsname="RNNXgb"]//img[@src="/tia/tia.png"]
+# //img[@src="/tia/tia.png"]/../../../div[@jscontroller="unV4T"]
+
+css - https://www.w3schools.com/csSref/index.php
+
+# div.fM33ce.dRYYxd span.ly0Ckb
+
+
+https://topswagcode.com/xpath/
+https://flukeout.github.io/
+
+
+spans = (//div[@class="fM33ce dRYYxd"]//span)  # list of spans  [span1, span2, span3]
+second_span = (//div[@class="fM33ce dRYYxd"]//span)[2] == [span1, span2, span3][1]
