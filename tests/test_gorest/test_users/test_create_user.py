@@ -4,6 +4,7 @@ from core.gorest.utils.user_enums import Statuses, Gender
 from tests.test_gorest.conftest import BaseUser
 from tests.test_gorest.test_users.conftest import GorestCreateUserBase
 from utils.faker_utils import faker
+from utils.setting_utils import ROOT_PATH
 
 
 class TestCreateUserGender(GorestCreateUserBase):
@@ -11,6 +12,10 @@ class TestCreateUserGender(GorestCreateUserBase):
     @mark.gorest_23
     @mark.parametrize('gender', list(Gender))
     def test_create_user(self, gender, user_name):
+
+        with open(f'{ROOT_PATH}/tests_results/{gender}.txt', 'w') as f:
+            f.write('test_create_user')
+
         data = {"name": user_name,
                 "gender": gender.value,
                 "email": faker.email(),
@@ -20,7 +25,7 @@ class TestCreateUserGender(GorestCreateUserBase):
 
         assert_user_was_created_response(data, response.json())
 
-        __class__._user_ids.append(response.json()['id'])  # додаю запис id в змінну класу
+        __class__._user_ids.append(response.json()['id'])  # пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ id пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ
 
 
 class TestCreateUserStatus(GorestCreateUserBase):
@@ -37,4 +42,4 @@ class TestCreateUserStatus(GorestCreateUserBase):
 
         assert_user_was_created_response(data, response.json())
 
-        __class__._user_ids.append(response.json()['id'])  # додаю запис id в змінну класу
+        __class__._user_ids.append(response.json()['id'])  # пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ id пїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅ

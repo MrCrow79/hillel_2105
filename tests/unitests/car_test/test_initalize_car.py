@@ -2,6 +2,7 @@ import pytest
 
 # from .conftest import get_default_value  # relative path
 from tests.unitests.car_test.conftest import get_default_value  # full path
+from utils.setting_utils import ROOT_PATH
 
 
 @pytest.mark.xfail
@@ -10,6 +11,15 @@ from tests.unitests.car_test.conftest import get_default_value  # full path
 ])
 def test_create_car_with_default_parameters(name, default_auto, fixture_for_example, fixture_postcondition):
 
+
+    with open(f'{ROOT_PATH}/tests_results/tst.txt', 'w') as f:
+        f.write('some text')
+        f.write('some text2')
+        f.write('some text3')
+        f.write('some text4')
+
     assert getattr(default_auto, name) == get_default_value(name)  # assert auto.name == expected_value, where name can be tank, fuel_consumption...
     # assert auto.__getattribute__(name) == expected_value  # assert auto.name == expected_value, where name can be tank, fuel_consumption...
+
+
 

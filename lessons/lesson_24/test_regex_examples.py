@@ -19,8 +19,8 @@ def test_check_city_country(data):
     # assert final_text.split()[1].istitle()
     # assert final_text.split()[-1].istitle()
     print(final_text)
-    re_city = "^The\s[A-Z]{1}[a-z]+"
-    re_country = "\s[A-Z]+[a-z]*$"
+    re_city = r"^The\s[A-Z]{1}[a-z]+"
+    re_country = r"\s[A-Z]+[a-z]*$"
     assert bool(re.findall(re_city, final_text))
     assert bool(re.findall(re_country, final_text))
 
