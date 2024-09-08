@@ -1,23 +1,16 @@
+import os
+
 import psycopg2
 
 def test_database_connection():
-    conn = psycopg2.connect(
-        dbname="test_db",
-        user="test_user",
-        password="test_password",
-        host="db",
-        port="5432"
-    )
+    conn = psycopg2.connect(os.getenv('DATABASE_URL'))
     assert conn is not None
 
 def test_data_insertion():
-    conn = psycopg2.connect(
-        dbname="test_db",
-        user="test_user",
-        password="test_password",
-        host="db",
-        port="5432"
-    )
+
+    # Підключаємося до бази даних
+    conn = psycopg2.connect(os.getenv('DATABASE_URL'))
+
     cursor = conn.cursor()
     cursor.execute("INSERT INTO users (id, name) VALUES (1, 'John')")
     conn.commit()
