@@ -12,7 +12,7 @@ def test_product_page_items_is_sorted_by_price(get_logged_in_product_page, order
     prices = product_page.wait_all_product_on_a_page().collect_item_prices()
     assert_prices_are_sorted(prices, sort_type=ordering)
 
-
+@pytest.mark.ui
 def test_product_page_add_item_to_cart(get_logged_in_product_page):
     product_page = get_logged_in_product_page
 

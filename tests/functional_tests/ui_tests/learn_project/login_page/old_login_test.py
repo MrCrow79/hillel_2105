@@ -9,10 +9,10 @@ url = "https://www.saucedemo.com/"
 user_name = "standard_user"
 password = "secret_sauce"
 
-driver = webdriver.Chrome()
 
 
 def test_login_standard_user():
+    driver = webdriver.Chrome()
     # driver.implicitly_wait(10)  # неявне очікування 10 секунд
     driver.get(url)
 

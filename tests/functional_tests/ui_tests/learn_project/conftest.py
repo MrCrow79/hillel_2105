@@ -13,27 +13,28 @@ def user_name():
 def user_password():
     return "secret_sauce"
 
-@pytest.skip()
+
+
 @pytest.fixture(scope='session')
 def chrome_options():
-    options = webdriver.ChromeOptions()
-    options.add_argument('--headless')
-    options.add_argument("--disable-dev-shm-usage")
-    options.add_argument('--no-sandbox')
+    chrome_options = webdriver.ChromeOptions()
+    chrome_options.add_argument("--headless")
+    chrome_options.add_argument("--no-sandbox")
     chrome_options.add_argument("--disable-dev-shm-usage")
 
-    options.browser_version = "114"
-    return options
+    chrome_options.browser_version = "114"
+    return chrome_options
+
 
 @pytest.fixture(scope='session')
 def driver(chrome_options):
     driver = webdriver.Chrome(options=chrome_options)
+
     return driver
 
 
 @pytest.fixture()  # scope='function' by default
 def one_test_driver(chrome_options):
-
     driver = webdriver.Chrome(options=chrome_options)
     return driver
 
