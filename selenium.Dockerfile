@@ -45,12 +45,11 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Встановлюємо Google Chrome з .deb файлу
+# Google Chrome з .deb
 RUN dpkg -i /app/utils/google-chrome-stable_114.0.5735.90-1_amd64.deb \
     && apt-get -f install -y
-RUN echo google-chrome --version
 
-# Завантажуємо та встановлюємо відповідний ChromeDriver для версії 114
+# ChromeDriver для 114
 RUN CHROME_VERSION=114.0.5735 \
     && DRIVER_VERSION=$(curl -sS https://chromedriver.storage.googleapis.com/LATEST_RELEASE_$CHROME_VERSION) \
     && wget -N https://chromedriver.storage.googleapis.com/$DRIVER_VERSION/chromedriver_linux64.zip \
@@ -61,17 +60,11 @@ RUN CHROME_VERSION=114.0.5735 \
 
 
 RUN chmod -R 777 /app
-# Задаємо робочу директорію контейнера
+
 WORKDIR /app
-
-# Встановлюємо залежності для тестування (як root)
 RUN pip install --no-cache-dir -r requirements.txt
-
-RUN echo google-chrome --version
-RUN chmod +x /usr/local/bin/chromedriver
 
 
 # Виконуємо команду для запуску тестів під час створення контейнера
-CMD ["pytest", "-v"]
-# pytest -m api_tests CMD ["pytest", "-m", "api_tests"]
+CMD ["pytest", "-m", "ui"]
 
