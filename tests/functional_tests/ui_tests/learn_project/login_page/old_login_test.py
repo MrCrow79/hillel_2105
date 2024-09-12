@@ -1,3 +1,4 @@
+import allure
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
@@ -10,7 +11,9 @@ user_name = "standard_user"
 password = "secret_sauce"
 
 
-
+@allure.epic('UI tests')
+@allure.feature('SauseDemo')
+@allure.story('SauseDemo old version Login')
 def test_login_standard_user():
     driver = webdriver.Chrome()
     # driver.implicitly_wait(10)  # неявне очікування 10 секунд

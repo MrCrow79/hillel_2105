@@ -1,9 +1,14 @@
+import allure
+
 from core.gorest.assertations.posts_assrtation import get_posts_assertations
 from tests.test_gorest.test_user_posts.conftest import GorestUserPosts
 
 
+
+@allure.feature('Get user feature')
 class TestGetUserPost(GorestUserPosts):
 
+    @allure.story('Positive Get user story')
     def test_get_user_posts(self, created_user, created_post):
         user_id = created_user.get('id')
 

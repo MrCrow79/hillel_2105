@@ -1,10 +1,13 @@
 from core.gorest.assertations.posts_assrtation import post_was_created
 from tests.test_gorest.test_user_posts.conftest import GorestUserPosts
-from assertpy import soft_assertions, assert_that
+import allure
 
 
+
+@allure.feature('Create user feature')
 class TestCreateUserPost(GorestUserPosts):
 
+    @allure.story('Positive Create user story')
     def test_create_post(self, created_user):
         body = {
             "title": 'create post_title',

@@ -1,3 +1,5 @@
+allure-pytest==2.13.5
+allure-python-commons==2.13.5
 anyio==4.4.0
 assertpy==1.1
 attrs==24.2.0
@@ -9,6 +11,7 @@ chromedriver-binary==114.0.5735.90.0
 click==8.1.7
 colorama==0.4.6
 configparser==7.0.0
+curlify==2.2.1
 exceptiongroup==1.2.2
 Faker==26.0.0
 Flask==3.0.3
@@ -39,7 +42,7 @@ pillow==10.3.0
 pluggy==1.5.0
 pony==0.7.17
 psutil==6.0.0
-psycopg2-binary==2.9.9
+psycopg2-binary
 pyrate-limiter==3.7.0
 PySocks==1.7.1
 pytest==8.2.2

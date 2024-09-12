@@ -1,17 +1,20 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
+import allure
 
+from utils.logger_utils import logger
 
 class BasePage:
 
     def __init__(self, driver, page_part_of_url, base_url):  # was: (driver, url), is : (driver, page_part_of_url, base_url)
 
         self.driver = driver
-        self.base_url = base_url  # буде мінятись в залежностів від env(dev, stage, prod)
-        self.page_part_of_url = page_part_of_url  # не буде мінятись
+        self.base_url = base_url  # пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ env(dev, stage, prod)
+        self.page_part_of_url = page_part_of_url  # пїЅпїЅ пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         self.url = self.base_url + self.page_part_of_url
 
     def open(self):
+        logger.info(f"Opening {self.url}")
         self.driver.get(self.url)
         return self
 
