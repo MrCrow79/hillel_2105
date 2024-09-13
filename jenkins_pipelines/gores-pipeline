@@ -1,0 +1,43 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/MrCrow79/hillel_2105'
+            }
+        }
+        stage('Install python') {
+            steps {
+                
+                sh 'apt-get install -y python3 python3-dev '
+                sh 'apt install -y python3-pip '
+                sh 'rm -rf venv '
+                sh 'apt install -y python3.11-venv '
+                sh 'python3 -m venv venv '
+                
+            }
+        }
+        stage('Install dependencies') {
+            steps {
+                sh '''#!/bin/bash
+                source venv/bin/activate
+                pip install -r requirements.txt'''  
+                
+            }
+        }
+        stage('Run tests') {
+            steps {
+                sh '''#!/bin/bash
+                    source venv/bin/activate
+                    pytest -m gorest --alluredir allure-results'''
+            }
+        }
+    }
+    post {
+        always {
+            allure includeProperties: false, jdk: '', reportBuildPolicy: 'ALWAYS', properties: [], results: [[path: 'allure-results']]
+
+        }
+    }
+}
