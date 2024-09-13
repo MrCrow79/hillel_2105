@@ -1,4 +1,5 @@
 # docker-compose.yaml
+# docker compose -f docker-compose-jenkin.yaml up
 version: '3.8'
 services:
   jenkins:
