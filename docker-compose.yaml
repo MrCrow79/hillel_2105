@@ -14,8 +14,8 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    depends_on:
-      - db
-    environment:
-      DATABASE_URL: postgres://test_user:test_password@db:5432/test_db
+    volumes:
+      - /home/den/hillel/hillel_2105/allure-results/:/app/allure-results/
+      - /home/den/hillel/hillel_2105/allure-report/:/app/allure-report/
+
 
