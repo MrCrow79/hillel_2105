@@ -1,10 +1,19 @@
-FROM python:3.11
+FROM python:3.12
 
-WORKDIR /app
+# Встановлюємо необхідні залежності для Chrome
+RUN apt-get update && apt-get install -y wget unzip curl gnupg
+
+# Встановлюємо Google Chrome
+RUN curl -sSL https://dl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+    echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list && \
+    apt-get update && apt-get install -y google-chrome-stable
 
 COPY . /app
 
-RUN pip install psycopg2
+WORKDIR /app
 RUN pip install -r requirements.txt
 
-CMD ["pytest", "db_docker_file.py"]
+RUN pip install webdriver-manager
+
+
+CMD ["pytest", "-m", "swapi"]
