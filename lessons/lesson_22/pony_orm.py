@@ -1,7 +1,11 @@
 from pony.orm import Database, db_session
 from pony.orm import Required, Set, Optional
 
-db = Database(provider='postgres', user='postgres', password='123', host='localhost', database='postgres')
+from lessons.lesson_22.alchemy_base import DATABASE_URL2
+
+#db = Database(provider='postgres', user='postgres', password='123', host='localhost', database='postgres')
+db = Database(provider='sqlite', filename='database.sqlite', create_db=True)
+
 
 
 class Department(db.Entity):
@@ -19,15 +23,15 @@ db.generate_mapping(create_tables=True)
 
 with db_session:
     department = Department(name='Security2')
-    # db.commit()
+    db.commit()
 
-    # Додавання нового співробітника
-    # john = Employee(name='John', department=department)
-    # db.commit()
-    #
-    # # Оновлення інформації про співробітника
-    # john.name = 'John Doe'
-    # db.commit()
+    #Додавання нового співробітника
+    john = Employee(name='John', department=department)
+    db.commit()
+
+    # Оновлення інформації про співробітника
+    john.name = 'John Doe'
+    db.commit()
 
     # Видалення співробітника
     # db.delete(john)
@@ -47,3 +51,4 @@ with db_session:
 
     # Вибірка перших 5 співробітників
     first_five_employees = sorted_employees[:5]
+    print(first_five_employees)
